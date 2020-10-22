@@ -4,5 +4,7 @@ Inside the Directory, run Terraform init, then terraform plan -var-file=credenti
 
 Credentials.tfvars must include:
 
+```
 access_key = ""
 secret_key = ""
+```
