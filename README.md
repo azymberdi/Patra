@@ -10,7 +10,7 @@ Finally, if you are satisifed with the outcome
 ```
 terraform apply -var-file=credentials.tfvars. 
 ```
-Credentials.tfvars must include:
+Credentials.tfvars, that was git ignored for security purposes, must include:
 
 ```
 access_key = ""
