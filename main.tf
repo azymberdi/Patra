@@ -11,7 +11,7 @@ resource "aws_key_pair" "key" {
 }
 
 data "template_file" "init" {
-  template = "${file("${path.module}/httpd.sh")}"
+  template = "${file("${path.module}/userdata.sh")}"
 }
 
 resource "aws_launch_template" "example" {
