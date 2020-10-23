@@ -26,7 +26,7 @@ pipeline {
 
         stage('TerraformFormat'){
             steps {
-                dir('jenkins-terraform-pipeline/ec2_pipeline/'){
+                dir('Patra'){
                     sh "terraform fmt -list=true -write=false -diff=true -check=true"
                 }
             }
@@ -34,7 +34,7 @@ pipeline {
 
         stage('TerraformValidate'){
             steps {
-                dir('jenkins-terraform-pipeline/ec2_pipeline/'){
+                dir('Patra'){
                     sh "terraform validate"
                 }
             }
@@ -42,7 +42,7 @@ pipeline {
 
         stage('TerraformPlan'){
             steps {
-                dir('jenkins-terraform-pipeline/ec2_pipeline/'){
+                dir('Patra'){
                     script {
                         try {
                             sh "terraform workspace new ${params.WORKSPACE}"
@@ -68,7 +68,7 @@ pipeline {
                          currentBuild.result = 'UNSTABLE'
                     }
                     if(apply){
-                        dir('jenkins-terraform-pipeline/ec2_pipeline/'){
+                        dir('Patra'){
                             unstash "terraform-plan"
                             sh 'terraform apply terraform.tfplan'
                         }
