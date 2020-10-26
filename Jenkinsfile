@@ -40,7 +40,6 @@ pipeline {
                     }
                 }
             }
-        }
         stage('TerraformApply'){
             steps {
                 script{
