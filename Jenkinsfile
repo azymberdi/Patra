@@ -13,7 +13,7 @@ pipeline {
     }
     stages {
              stage('PullSCM'){
-             git branch: "${params.release_name}, url: 'https://github.com:azymberdi/Jenkins-Terraform-Instance.git'
+             git 'https://github.com/azymberdi/Patra.git'
 
             stage('TerraformInit'){
             steps {
