@@ -39,36 +39,22 @@ pipeline {
                                 stash name: "terraform-plan", includes: "terraform.tfplan"
                                 """          
                     }
-                }
-        stage('TerraformApply'){
-            steps {
-                script{
-                    def apply = false
-                    try {
-                        input message: 'Can you please confirm the apply', ok: 'Ready to Apply the Config'
-                        apply = true
-                    } catch (err) {
-                        apply = false
-                         currentBuild.result = 'UNSTABLE'
-                    }
-                    if(apply){
-                            unstash "terraform-plan"
-                            sh 'terraform apply terraform.tfplan'
-        stage("Terraform Apply/plan") {
+        }
+        stage("Terraform Apply/Plan") {
                         if (!params.terraformDestroy) {
                             if (params.terraformApply) {
                                 println("Applying the changes")
                                 sh """
                                 #!/bin/bash
                                 export AWS_DEFAULT_REGION=${aws_region}
-                                terraform apply terraform.tfplan
+                                terraform apply -var 'access_key=$ACCESS_KEY' -var 'secret_key=$SECRET_KEY'
                                 """
                             } else {
                                 println("Planning the changes")
                                 sh """
                                 #!/bin/bash
                                 export AWS_DEFAULT_REGION=${aws_region}
-                                terraform plan -var-file \$DATAFILE
+                                terraform plan -var 'access_key=$ACCESS_KEY' -var 'secret_key=$SECRET_KEY'
                                 """
                             }
                         }
@@ -79,7 +65,7 @@ pipeline {
                             sh """
                             #!/bin/bash
                             export AWS_DEFAULT_REGION=${aws_region}
-                            terraform destroy terraform.tfplan
+                            terraform destroy -var 'access_key=$ACCESS_KEY' -var 'secret_key=$SECRET_KEY'
                             """
                         } else {
                             println("Skipping the destroy")
