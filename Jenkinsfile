@@ -45,8 +45,7 @@ pipeline {
                                 """
                             }
                         }
-                    }
-                    stage("Terraform Destroy") {
+          stage("Terraform Destroy") {
                         if (params.terraformDestroy) {
                             println("Destroying all")
                             sh """
