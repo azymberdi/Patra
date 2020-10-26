@@ -1,7 +1,7 @@
 properties([
     parameters([
         booleanParam(defaultValue: false, description: 'Please select to apply changes', name: 'terraformApply'), 
-        booleanParam(defaultValue: false, description: 'Please select it to destroy a previously created job.', name: 'terraformDestroy')
+        booleanParam(defaultValue: false, description: 'Please select it to destroy a previously created job.', name: 'terraformDestroy'),
         choice(choices: ['us-west-2', 'us-west-1', 'us-east-2', 'us-east-1', 'eu-west-1'], description: 'Please select the region', name: 'aws_region'),
     ])
 ])
