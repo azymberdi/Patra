@@ -110,3 +110,4 @@ resource "aws_security_group" "allow" {
 
 variable "access_key" {}
 variable "secret_key" {}
+variable "aws_region" {}
