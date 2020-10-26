@@ -22,30 +22,30 @@ pipeline {
     stages {
             stage('TerraformInit'){
             steps {
-                    sh "terraform init -input=false"
-                    sh "echo \$PWD"
-                    sh "whoami"
+               sh "terraform init -input=false"
+               sh "echo \$PWD"
+               sh "whoami"
                 }
             }
 
             stage("Terraform Apply/Plan") {
-                         if (!params.terraformDestroy) {
-                            if (params.terraformApply) {
-                                println("Applying the changes")
-                                sh """
-                                #!/bin/bash
-                                export AWS_DEFAULT_REGION=${aws_region}
-                                terraform apply -var 'access_key=$ACCESS_KEY' -var 'secret_key=$SECRET_KEY'
-                                """
-                            } else {
-                                println("Planning the changes")
-                                sh """
-                                #!/bin/bash
-                                export AWS_DEFAULT_REGION=${aws_region}
-                                terraform plan -var 'access_key=$ACCESS_KEY' -var 'secret_key=$SECRET_KEY'
-                                """
-                            }
-                        }
+                if (!params.terraformDestroy) {
+                    if (params.terraformApply) {
+                    println("Applying the changes")
+                    sh """
+                    #!/bin/bash
+                    export AWS_DEFAULT_REGION=${aws_region}
+                    terraform apply -var 'access_key=$ACCESS_KEY' -var 'secret_key=$SECRET_KEY'
+                    """
+                } else {
+                    println("Planning the changes")
+                    sh """
+                    #!/bin/bash
+                    export AWS_DEFAULT_REGION=${aws_region}
+                    terraform plan -var 'access_key=$ACCESS_KEY' -var 'secret_key=$SECRET_KEY'
+                    """
+                }
+            }
           stage("Terraform Destroy") {
                         if (params.terraformDestroy) {
                             println("Destroying all")
@@ -56,8 +56,8 @@ pipeline {
                             """
                         } else {
                             println("Skipping the destroy")
-                        }
-                    }
-                }
-}
+                   }
+              }
+         }
+    }
 }     
