@@ -30,10 +30,18 @@ pipeline {
 
         stage('TerraformPlan'){
             steps {
-                        sh " export AWS_DEFAULT_REGION=${aws_region}
-                         terraform plan -var 'access_key=$ACCESS_KEY' -var 'secret_key=$SECRET_KEY' \
-                        -out terraform.tfplan;echo \$? > status"
-                        stash name: "terraform-plan", includes: "terraform.tfplan"
+                   println("Planning the changes")
+                   sh """
+                                #!/bin/bash
+                                export AWS_DEFAULT_REGION=${aws_region}
+                                terraform plan -var 'access_key=$ACCESS_KEY' -var 'secret_key=$SECRET_KEY' \
+                               -out terraform.tfplan;echo \$? > status"
+                                  stash name: "terraform-plan", includes: "terraform.tfplan"
+                                """        
+                
+                    #sh "terraform plan -var 'access_key=$ACCESS_KEY' -var 'secret_key=$SECRET_KEY' \
+                       # -out terraform.tfplan;echo \$? > status"
+                      #  stash name: "terraform-plan", includes: "terraform.tfplan"
                     }
                 }
         stage('TerraformApply'){
