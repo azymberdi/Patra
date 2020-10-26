@@ -43,7 +43,7 @@ launch_template  {
 
 
 resource "aws_security_group" "allow" {
-  name        = "allowsitshds"
+  name        = "allowitforPatra"
   description = "Allow TLS inbound traffic"
 
   ingress {
