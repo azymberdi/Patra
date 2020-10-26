@@ -31,14 +31,6 @@ pipeline {
             }
         }
 
-        stage('TerraformValidate'){
-            steps {
-                dir('Patra/main.tf'){
-                    sh "terraform validate"
-                }
-            }
-        }
-
         stage('TerraformPlan'){
             steps {
                 dir('Patra/main.tf'){
