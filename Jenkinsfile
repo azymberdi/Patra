@@ -70,7 +70,7 @@ pipeline {
                     }
                     stage("Terraform Destroy") {
                         if (params.terraformDestroy) {
-                            println("Destroying the all")
+                            println("Destroying all")
                             sh """
                             #!/bin/bash
                             export AWS_DEFAULT_REGION=${aws_region}
