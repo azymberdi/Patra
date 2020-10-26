@@ -48,7 +48,46 @@ pipeline {
                     if(apply){
                             unstash "terraform-plan"
                             sh 'terraform apply terraform.tfplan'
+        stage("Terraform Apply/plan") {
+                        if (!params.terraformDestroy) {
+                            if (params.terraformApply) {
+                                println("Applying the changes")
+                                sh """
+                                #!/bin/bash
+                                export AWS_DEFAULT_REGION=${aws_region}
+                                terraform apply terraform.tfplan
+                                """
+                            } else {
+                                println("Planning the changes")
+                                sh """
+                                #!/bin/bash
+                                export AWS_DEFAULT_REGION=${aws_region}
+                                terraform plan -var-file \$DATAFILE
+                                """
+                            }
                         }
+                    }
+                    stage("Terraform Destroy") {
+                        if (params.terraformDestroy) {
+                            println("Destroying the all")
+                            sh """
+                            #!/bin/bash
+                            export AWS_DEFAULT_REGION=${aws_region}
+                            terraform destroy terraform.tfplan
+                            """
+                        } else {
+                            println("Skipping the destroy")
+                        }
+                    }
+                }
+            }
+        }
+      }
+    }          
+                    
+                    
+                    
+                    }
                     }
                 }
             }
