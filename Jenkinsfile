@@ -12,8 +12,8 @@ pipeline {
         SECRET_KEY = credentials('AWS_SECRET_ACCESS_KEY')
     }
     stages {
-             stage('PullSCM'){
-             git 'https://github.com/azymberdi/Patra.git'
+            stage('PullSCM'){
+            git 'https://github.com/azymberdi/Patra.git'
 
             stage('TerraformInit'){
             steps {
