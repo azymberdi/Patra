@@ -15,7 +15,7 @@ pipeline {
       
             stage('TerraformInit'){
             steps {
-                dir('Patra'){
+                dir('Patra/main.tf'){
                     sh "terraform init -input=false"
                     sh "echo \$PWD"
                     sh "whoami"
