@@ -5,10 +5,10 @@ provider "aws" {
 }
 
 
-resource "aws_key_pair" "key" {
-  key_name   = "Bastion2565333"
-  public_key = "${file("~/.ssh/id_rsa.pub")}"
-}
+#resource "aws_key_pair" "key" {
+  #key_name   = "Bastion2565333"
+  #public_key = "${file("~/.ssh/id_rsa.pub")}"
+#}
 
 data "template_file" "init" {
   template = "${file("${path.module}/userdata.sh")}"
@@ -20,7 +20,7 @@ resource "aws_launch_template" "example" {
   instance_type = "t2.micro"
   user_data       = "${base64encode(data.template_file.init.rendered)}"
   vpc_security_group_ids = ["${aws_security_group.allow.id}"]
-  key_name = "${aws_key_pair.key.key_name}"
+  #key_name = "${aws_key_pair.key.key_name}"
 }
 
 resource "aws_autoscaling_group" "example" {
