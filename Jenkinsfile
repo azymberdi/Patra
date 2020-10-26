@@ -25,7 +25,7 @@ pipeline {
 
         stage('TerraformFormat'){
             steps {
-                dir('Patra'){
+                dir('Patra/main.tf'){
                     sh "terraform fmt -list=true -write=false -diff=true -check=true"
                 }
             }
@@ -33,7 +33,7 @@ pipeline {
 
         stage('TerraformValidate'){
             steps {
-                dir('Patra'){
+                dir('Patra/main.tf'){
                     sh "terraform validate"
                 }
             }
@@ -41,7 +41,7 @@ pipeline {
 
         stage('TerraformPlan'){
             steps {
-                dir('Patra'){
+                dir('Patra/main.tf'){
                     script {
                         try {
                             sh "terraform workspace new ${params.WORKSPACE}"
@@ -67,7 +67,7 @@ pipeline {
                          currentBuild.result = 'UNSTABLE'
                     }
                     if(apply){
-                        dir('Patra'){
+                        dir('Patra/main.tf'){
                             unstash "terraform-plan"
                             sh 'terraform apply terraform.tfplan'
                         }
