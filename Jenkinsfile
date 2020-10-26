@@ -30,7 +30,7 @@ pipeline {
 
             stage("Terraform Apply/Plan") {
                 steps {
-                if (!params.terraformDestroy) {
+                    if (!params.terraformDestroy) {
                     if (params.terraformApply) {
                     println("Applying the changes")
                     sh """
@@ -47,8 +47,8 @@ pipeline {
                     """
                 }
             }
-          stage("Terraform Destroy") {
-              steps {
+            stage("Terraform Destroy") {
+                steps {
                         if (params.terraformDestroy) {
                             println("Destroying all")
                             sh """
