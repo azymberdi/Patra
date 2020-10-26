@@ -29,6 +29,7 @@ pipeline {
             }
 
         stage("Terraform Apply/Plan") {
+                         if (!params.terraformDestroy) {
                             if (params.terraformApply) {
                                 println("Applying the changes")
                                 sh """
