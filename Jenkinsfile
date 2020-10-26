@@ -20,23 +20,13 @@ pipeline {
                 }
             }
 
-        stage('TerraformFormat'){
-            steps {
-                dir('Patra/'){
-                    sh "terraform fmt -list=true -write=false -diff=true -check=true"
-                }
-            }
-        }
-
         stage('TerraformPlan'){
             steps {
-                dir('Patra/'){
                         sh "terraform plan -var 'access_key=$ACCESS_KEY' -var 'secret_key=$SECRET_KEY' \
                         -out terraform.tfplan;echo \$? > status"
                         stash name: "terraform-plan", includes: "terraform.tfplan"
                     }
                 }
-            }
         stage('TerraformApply'){
             steps {
                 script{
@@ -49,7 +39,6 @@ pipeline {
                          currentBuild.result = 'UNSTABLE'
                     }
                     if(apply){
-                        dir('Patra/'){
                             unstash "terraform-plan"
                             sh 'terraform apply terraform.tfplan'
                         }
