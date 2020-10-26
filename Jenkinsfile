@@ -12,15 +12,8 @@ pipeline {
         SECRET_KEY = credentials('AWS_SECRET_ACCESS_KEY')
     }
     stages {
-            
-                stage('Checkout') {
-                steps {
-                  checkout scm
-      }
-    }
             stage('TerraformInit'){
             steps {
-                dir('Patra/'){
                     sh "terraform init -input=false"
                     sh "echo \$PWD"
                     sh "whoami"
