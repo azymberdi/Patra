@@ -1,3 +1,10 @@
+properties([
+    parameters([
+        booleanParam(defaultValue: false, description: 'Please select to apply changes', name: 'terraformApply'), 
+        booleanParam(defaultValue: false, description: 'Please select it to destroy a previously created job.', name: 'terraformDestroy')
+    ])
+])
+
 pipeline {
     agent any
     tools {
