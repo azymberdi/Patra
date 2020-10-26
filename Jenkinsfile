@@ -19,7 +19,6 @@ pipeline {
                     sh "whoami"
                 }
             }
-        }
 
         stage('TerraformFormat'){
             steps {
@@ -59,3 +58,4 @@ pipeline {
             }
         }
     }
+}
