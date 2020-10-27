@@ -42,7 +42,7 @@ launch_template  {
     }
   }
 
-resource "aws_vpc" "mainvpc" {
+resource "aws_vpc" "main" {
   cidr_block = "10.1.0.0/16"
 }
 
@@ -50,7 +50,7 @@ resource "aws_vpc" "mainvpc" {
 resource "aws_security_group" "allow" {
   name        = "Patraallowit"
   description = "Allow TLS inbound traffic"
-  vpc_id      = "${aws_vpc.mainvpc.id}"
+  vpc_id      = "${aws_vpc.main.id}"
 
 
   ingress {
