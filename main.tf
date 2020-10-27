@@ -43,8 +43,7 @@ launch_template  {
   }
 
 resource "aws_vpc" "main" {
-  cidr_block = "10.0.0.0/16"
-  default_security_group_id = "sg-02762247ffbe3b2d9"
+  cidr_block = "10.0.0.0/16
   tags = {
     Name = "Patra"
   }
@@ -54,7 +53,7 @@ resource "aws_vpc" "main" {
 resource "aws_security_group" "allow" {
   name        = "Patra"
   description = "Allow TLS inbound traffic"
-  #vpc_id      = "${aws_vpc.main.id}"
+  vpc_id      = "${aws_vpc.main.id}"
 
 
   ingress {
