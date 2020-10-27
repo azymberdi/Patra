@@ -133,21 +133,18 @@ resource "aws_subnet" "public1" {
     cidr_block = "10.0.101.0/24"
     availability_zone = "${var.region}a"
     map_public_ip_on_launch = true
-    tags = "${var.tags}"
 }
 resource "aws_subnet" "public2" {
     vpc_id     = "${aws_vpc.main.id}"
     cidr_block = "10.0.102.0/24"
     availability_zone = "${var.region}b"
     map_public_ip_on_launch = true
-    tags = "${var.tags}"
 }
 resource "aws_subnet" "public3" {
     vpc_id     = "${aws_vpc.main.id}"
     cidr_block = "10.0.103.0/24"
     availability_zone = "${var.region}c"
     map_public_ip_on_launch = true
-    tags = "${var.tags}"
 }
 
 
