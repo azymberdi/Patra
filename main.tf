@@ -1,5 +1,5 @@
 provider "aws" {
-  #region     = "${var.aws_region}"
+  #region     = "${var.region}"
   access_key = "${var.access_key}"
   secret_key = "${var.secret_key}"
 }
@@ -123,7 +123,7 @@ variable "public1_cidr" {}
 variable "public2_cidr" {}
 variable "public3_cidr" {}
 variable "region" {}
-variable "aws_region" {}
+#variable "aws_region" {}
 
 
 # # Public Subnet
