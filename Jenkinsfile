@@ -2,6 +2,7 @@ properties([
     parameters([
         booleanParam(defaultValue: false, description: 'Please select to apply changes', name: 'terraformApply'), 
         booleanParam(defaultValue: false, description: 'Please select it to destroy a previously created job.', name: 'terraformDestroy'),
+        choice(choices: ['us-west-2','us-east-1', 'us-west-1', 'us-east-2', 'eu-west-1'], description: 'Please select the region', name: 'region'),
     ])
 ])
 
@@ -17,7 +18,6 @@ pipeline {
         PATH = "$TF_HOME:$PATH"
         ACCESS_KEY = credentials('AWS_ACCESS_KEY_ID')
         SECRET_KEY = credentials('AWS_SECRET_ACCESS_KEY')
-        AWS_REGION = "us-west-2"
     }
     stages {
             stage('TerraformInit'){
