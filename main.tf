@@ -44,7 +44,7 @@ launch_template  {
 
 resource "aws_vpc" "main" {
   cidr_block = "10.0.0.0/16"
-  default_security_group_id = ["${aws_security_group.allow.id}"]
+  default_security_group_id = "sg-02762247ffbe3b2d9"
   tags = {
     Name = "Patra"
   }
