@@ -21,6 +21,7 @@ pipeline {
     }
     stages {
             stage('TerraformInit'){
+               println("Initiating ...")
                sh """
                #!/bin/bash
                terraform init -input=false
