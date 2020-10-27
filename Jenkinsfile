@@ -21,6 +21,7 @@ pipeline {
     }
     stages {
             stage('TerraformInit'){
+            steps {
                println("Initiating ...")
                sh """
                #!/bin/bash
@@ -32,6 +33,7 @@ pipeline {
             }
 
             stage("Terraform Apply/Plan") {
+            steps {
                     if (!params.terraformDestroy) {
                     if (params.terraformApply) {
                     println("Applying the changes")
@@ -50,6 +52,7 @@ pipeline {
                 }
             }
             stage("Terraform Destroy") {
+            steps {
                         if (params.terraformDestroy) {
                             println("Destroying all")
                             sh """
