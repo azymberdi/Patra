@@ -19,7 +19,7 @@ resource "aws_launch_template" "example" {
   image_id      = "ami-0d6621c01e8c2de2c"
   instance_type = "t2.micro"
   user_data       = "${base64encode(data.template_file.init.rendered)}"
-  vpc_security_group_ids = ["${aws_security_group.allow.id}"]
+  vpc_security_group_ids = [ ${aws_security_group.allow.id} ]
   #vpc_security_group_ids = ["sg-03ffb4fa277838623"]
   #key_name = "${aws_key_pair.key.key_name}"
 }
@@ -130,19 +130,19 @@ variable "secret_key" {}
 # ########################################################
 resource "aws_subnet" "public1" {
     vpc_id     = "${aws_vpc.main.id}"
-    cidr_block = "10.0.1.0/24"
+    cidr_block = "10.1.1.0/24"
     availability_zone = "us-west-2a"
     map_public_ip_on_launch = true
 }
 resource "aws_subnet" "public2" {
     vpc_id     = "${aws_vpc.main.id}"
-    cidr_block = "10.0.2.0/24"
+    cidr_block = "10.1.2.0/24"
     availability_zone = "us-west-2b"
     map_public_ip_on_launch = true
 }
 resource "aws_subnet" "public3" {
     vpc_id     = "${aws_vpc.main.id}"
-    cidr_block = "10.0.3.0/24"
+    cidr_block = "10.1.3.0/24"
     availability_zone = "us-west-2c"
     map_public_ip_on_launch = true
 }
