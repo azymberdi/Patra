@@ -5,7 +5,9 @@ main.tf - includes the necessary Terraform configuration to install Autoscaling 
 Jenkinsfile - includes necessary Jenkins configuration to automate it
 
 Prerequisites
-![alt text](https://user-images.githubusercontent.com/57076637/96326823-14361600-1002-11eb-9281-fccafa0c5b92.png)
+These programs need to be installed in your Machine.
+Terraform v0.11.8
+Jenkins - The provided link can be used: https://linuxize.com/post/how-to-install-jenkins-on-centos-7/
 
 Terraform without Jenkins
 
