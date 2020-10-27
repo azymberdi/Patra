@@ -128,21 +128,21 @@ variable "public3_cidr" {}
 resource "aws_subnet" "public1" {
     vpc_id     = "${aws_vpc.main.id}"
     cidr_block = "${var.public1_cidr}"
-    availability_zone = ""${var.region}a""
+    availability_zone = "${var.region}a"
     map_public_ip_on_launch = true
     tags = "${var.tags}"
 }
 resource "aws_subnet" "public2" {
     vpc_id     = "${aws_vpc.main.id}"
     cidr_block = "${var.public2_cidr}"
-    availability_zone = ""${var.region}b"
+    availability_zone = "${var.region}b"
     map_public_ip_on_launch = true
     tags = "${var.tags}"
 }
 resource "aws_subnet" "public3" {
     vpc_id     = "${aws_vpc.main.id}"
     cidr_block = "${var.public3_cidr}"
-    availability_zone = ""${var.region}c"
+    availability_zone = "${var.region}c"
     map_public_ip_on_launch = true
     tags = "${var.tags}"
 }
