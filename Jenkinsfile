@@ -41,7 +41,7 @@ pipeline {
                     sh """
                     #!/bin/bash
                     export AWS_DEFAULT_REGION=${aws_region}
-                    terraform apply -var 'access_key=$ACCESS_KEY' -var 'secret_key=$SECRET_KEY'
+                    terraform apply -auto-approve -var 'access_key=$ACCESS_KEY' -var 'secret_key=$SECRET_KEY'
                     """
                 } else {
                     println("Planning the changes")
@@ -60,7 +60,7 @@ pipeline {
                             sh """
                             #!/bin/bash
                             export AWS_DEFAULT_REGION=${aws_region}
-                            terraform destroy -var 'access_key=$ACCESS_KEY' -var 'secret_key=$SECRET_KEY'
+                            terraform destroy -auto-approve -var 'access_key=$ACCESS_KEY' -var 'secret_key=$SECRET_KEY'
                             """
                         } else {
                             println("Skipping the destroy")
