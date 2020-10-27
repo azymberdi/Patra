@@ -122,6 +122,9 @@ variable "tags" {}
 variable "public1_cidr" {}
 variable "public2_cidr" {}
 variable "public3_cidr" {}
+variable "region" {}
+variable "aws_region" {}
+
 
 # # Public Subnet
 # ########################################################
