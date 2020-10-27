@@ -8,8 +8,19 @@
   
 ## Prerequisites
 
-Terraform v0.11.8.  
-Jenkins - The provided link can be used: https://linuxize.com/post/how-to-install-jenkins-on-centos-7/. 
+###### Terraform v0.11.8.    
+Steps for installing Terraform on your machine:   
+```
+sudo yum install wget -y
+sudo yum install unzip -y
+sudo wget  https://releases.hashicorp.com/terraform/0.11.14/terraform_0.11.14_linux_amd64.zip
+sudo unzip terraform_0.12.24_linux_amd64.zip 
+sudo mv terraform /bin
+rm -rf terraform_0.12.24_linux_amd64.zip
+
+```
+###### Jenkins    
+The provided link can be used to install Jenkins: https://linuxize.com/post/how-to-install-jenkins-on-centos-7/.     
 
 
 ## Applying Terraform code without Jenkins
