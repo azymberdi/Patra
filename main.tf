@@ -1,5 +1,5 @@
 provider "aws" {
-  #region     = "${var.region}"
+  region     = "us-west-2"
   access_key = "${var.access_key}"
   secret_key = "${var.secret_key}"
 }
@@ -26,9 +26,9 @@ resource "aws_launch_template" "example" {
 
 resource "aws_autoscaling_group" "example" {
   availability_zones = [
-    "${var.region}a",
-    "${var.region}b",
-    "${var.region}c",
+    "us-west-2a",
+    "us-west-2b",
+    "us-west-2c",
   ]
 
   desired_capacity = "2"
@@ -122,7 +122,7 @@ variable "secret_key" {}
 #variable "public1_cidr" {}
 #variable "public2_cidr" {}
 #variable "public3_cidr" {}
-variable "region" {}
+#variable "region" {}
 #variable "aws_region" {}
 
 
@@ -131,19 +131,19 @@ variable "region" {}
 resource "aws_subnet" "public1" {
     vpc_id     = "${aws_vpc.main.id}"
     cidr_block = "10.0.101.0/24"
-    availability_zone = "${var.region}a"
+    availability_zone = "us-west-2a"
     map_public_ip_on_launch = true
 }
 resource "aws_subnet" "public2" {
     vpc_id     = "${aws_vpc.main.id}"
     cidr_block = "10.0.102.0/24"
-    availability_zone = "${var.region}b"
+    availability_zone = "us-west-2b"
     map_public_ip_on_launch = true
 }
 resource "aws_subnet" "public3" {
     vpc_id     = "${aws_vpc.main.id}"
     cidr_block = "10.0.103.0/24"
-    availability_zone = "${var.region}c"
+    availability_zone = "us-west-2c"
     map_public_ip_on_launch = true
 }
 
