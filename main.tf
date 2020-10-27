@@ -50,72 +50,6 @@ resource "aws_vpc" "main" {
 }
 
 
-resource "aws_security_group" "allow" {
-  name        = "Patra"
-  description = "Allow TLS inbound traffic"
-  vpc_id      = "${aws_vpc.main.id}"
-
-
-  ingress {
-    description = "TLS from VPC"
-    from_port   = 443
-    to_port     = 443
-    protocol    = "tcp"
-    cidr_blocks = ["0.0.0.0/0"]
-  }
-
-  ingress {
-    description = "TLS from VPC"
-    from_port   = 22
-    to_port     = 22
-    protocol    = "tcp"
-    cidr_blocks = ["0.0.0.0/0"]
-  }
-
-  ingress {
-    description = "TLS from VPC"
-    from_port   = 9100
-    to_port     = 9100
-    protocol    = "tcp"
-    cidr_blocks = ["0.0.0.0/0"]
-  }
-
-  ingress {
-    description = "TLS from VPC"
-    from_port   = 3000
-    to_port     = 3000
-    protocol    = "tcp"
-    cidr_blocks = ["0.0.0.0/0"]
-  }
-
-    ingress {
-    description = "TLS from VPC"
-    from_port   = 9090
-    to_port     = 9090
-    protocol    = "tcp"
-    cidr_blocks = ["0.0.0.0/0"]
-  }
-
-
-  ingress {
-    description = "TLS from VPC"
-    from_port   = 80
-    to_port     = 80
-    protocol    = "tcp"
-    cidr_blocks = ["0.0.0.0/0"]
-  }
-
-  egress {
-    from_port   = 0
-    to_port     = 0
-    protocol    = "-1"
-    cidr_blocks = ["0.0.0.0/0"]
-  }
-
-  tags = {
-    Name = "Patra"
-  }
-}
 
 
 variable "access_key" {}
@@ -129,32 +63,3 @@ variable "secret_key" {}
 #variable "aws_region" {}
 
 
-# # Public Subnet
-# ########################################################
-resource "aws_subnet" "public1" {
-    vpc_id     = "${aws_vpc.main.id}"
-    cidr_block = "10.0.1.0/24"
-    availability_zone = "us-west-2a"
-    map_public_ip_on_launch = true
-    tags = {
-      Name = "Patra1"
-  }
-}
-resource "aws_subnet" "public2" {
-    vpc_id     = "${aws_vpc.main.id}"
-    cidr_block = "10.0.2.0/24"
-    availability_zone = "us-west-2b"
-    map_public_ip_on_launch = true
-    tags = {
-      Name = "Patra2"
-  }
-}
-resource "aws_subnet" "public3" {
-    vpc_id     = "${aws_vpc.main.id}"
-    cidr_block = "10.0.3.0/24"
-    availability_zone = "us-west-2c"
-    map_public_ip_on_launch = true
-    tags = {
-      Name = "Patra3"
-  }
-}
