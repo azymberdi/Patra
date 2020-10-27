@@ -17,7 +17,6 @@ sudo wget  https://releases.hashicorp.com/terraform/0.11.14/terraform_0.11.14_li
 sudo unzip terraform_0.12.24_linux_amd64.zip 
 sudo mv terraform /bin
 rm -rf terraform_0.12.24_linux_amd64.zip
-
 ```
 ### Jenkins    
 The provided link can be used to install Jenkins: https://linuxize.com/post/how-to-install-jenkins-on-centos-7/.     
