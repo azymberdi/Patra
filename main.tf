@@ -118,7 +118,7 @@ resource "aws_security_group" "allow" {
 variable "access_key" {}
 variable "secret_key" {}
 #variable "aws_region" {}
-variable "tags" {}
+#variable "tags" {}
 #variable "public1_cidr" {}
 #variable "public2_cidr" {}
 #variable "public3_cidr" {}
