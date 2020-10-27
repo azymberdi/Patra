@@ -152,14 +152,5 @@ resource "aws_subnet" "public3" {
 
 
 
-variable "access_key" {}
-variable "secret_key" {}
-#variable "aws_region" {}
-#variable "tags" {}
-#variable "public1_cidr" {}
-#variable "public2_cidr" {}
-#variable "public3_cidr" {}
-#variable "region" {}
-#variable "aws_region" {}
 
 
