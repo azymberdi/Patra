@@ -1,5 +1,5 @@
 provider "aws" {
-  region     = "${var.aws_region}"
+  #region     = "${var.aws_region}"
   access_key = "${var.access_key}"
   secret_key = "${var.secret_key}"
 }
@@ -110,4 +110,4 @@ resource "aws_security_group" "allow" {
 
 variable "access_key" {}
 variable "secret_key" {}
-variable "aws_region" {}
+#variable "aws_region" {}
