@@ -18,6 +18,7 @@ pipeline {
         PATH = "$TF_HOME:$PATH"
         ACCESS_KEY = credentials('AWS_ACCESS_KEY_ID')
         SECRET_KEY = credentials('AWS_SECRET_ACCESS_KEY')
+        AWS_REGION = "us-west-2"
     }
     stages {
             stage('TerraformInit'){
