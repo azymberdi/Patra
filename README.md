@@ -8,7 +8,7 @@
   
 ## Prerequisites
 
-Terraform v0.11.8. 
+Terraform v0.11.8.  
 Jenkins - The provided link can be used: https://linuxize.com/post/how-to-install-jenkins-on-centos-7/. 
 
 
