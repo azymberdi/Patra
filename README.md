@@ -21,6 +21,9 @@ rm -rf terraform_0.12.24_linux_amd64.zip
 ### Jenkins    
 The provided link can be used to install Jenkins: https://linuxize.com/post/how-to-install-jenkins-on-centos-7/.     
 
+## Applying Jenkinsfile. 
+  
+Inside Jenkins, create a new item with pipeline, for Pipeline Definition, choose Pipeline script from SCM. 
 
 ## Applying Terraform code without Jenkins
 
