@@ -15,7 +15,7 @@ data "template_file" "init" {
 }
 
 resource "aws_launch_template" "example" {
- name_prefix   = "example"
+  name_prefix   = "example"
   image_id      = "ami-0d6621c01e8c2de2c"
   instance_type = "t2.micro"
   user_data       = "${base64encode(data.template_file.init.rendered)}"
@@ -44,11 +44,14 @@ launch_template  {
 
 resource "aws_vpc" "main" {
   cidr_block = "10.0.0.0/16"
+  tags = {
+    Name = "Patra"
+  }
 }
 
 
 resource "aws_security_group" "allow" {
-  name        = "Patraallowit"
+  name        = "Patra"
   description = "Allow TLS inbound traffic"
   vpc_id      = "${aws_vpc.main.id}"
 
@@ -110,7 +113,7 @@ resource "aws_security_group" "allow" {
   }
 
   tags = {
-    Name = "allow_tls"
+    Name = "Patra"
   }
 }
 
@@ -133,16 +136,25 @@ resource "aws_subnet" "public1" {
     cidr_block = "10.0.1.0/24"
     availability_zone = "us-west-2a"
     map_public_ip_on_launch = true
+    tags = {
+      Name = "Patra1"
+  }
 }
 resource "aws_subnet" "public2" {
     vpc_id     = "${aws_vpc.main.id}"
     cidr_block = "10.0.2.0/24"
     availability_zone = "us-west-2b"
     map_public_ip_on_launch = true
+    tags = {
+      Name = "Patra2"
+  }
 }
 resource "aws_subnet" "public3" {
     vpc_id     = "${aws_vpc.main.id}"
     cidr_block = "10.0.3.0/24"
     availability_zone = "us-west-2c"
     map_public_ip_on_launch = true
+    tags = {
+      Name = "Patra3"
+  }
 }
