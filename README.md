@@ -6,12 +6,13 @@
   
 **userdata.sh** - includes the shell commands to install Grafana, Prometheus and Node Explorer inside the newly created Machine.
   
-Prerequisites
-These programs need to be installed in your Machine.
-Terraform v0.11.8
-Jenkins - The provided link can be used: https://linuxize.com/post/how-to-install-jenkins-on-centos-7/
+## Prerequisites
 
-Terraform without Jenkins
+Terraform v0.11.8. 
+Jenkins - The provided link can be used: https://linuxize.com/post/how-to-install-jenkins-on-centos-7/. 
+
+
+## Applying Terraform code without Jenkins
 
 Since the AWS Access and Secret Keys are installed inside Credential Configurations, to run Terraform code by itself tfvars file for Configurations is manadatory to be created. Credentials.tfvars, that was git ignored for security purposes, must include:
 
