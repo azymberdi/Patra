@@ -19,8 +19,8 @@ resource "aws_launch_template" "example" {
   image_id      = "ami-0d6621c01e8c2de2c"
   instance_type = "t2.micro"
   user_data       = "${base64encode(data.template_file.init.rendered)}"
-  vpc_security_group_ids = ["${aws_security_group.allow.id}"]
-  #vpc_security_group_ids = ["sg-03ffb4fa277838623"]
+  #vpc_security_group_ids = ["${aws_security_group.allow.id}"]
+  vpc_security_group_ids = ["sg-0a02875f97061d24d"]
   #key_name = "${aws_key_pair.key.key_name}"
 }
 
