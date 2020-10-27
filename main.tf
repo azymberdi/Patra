@@ -44,7 +44,7 @@ launch_template  {
 
 
 resource "aws_security_group" "allow" {
-  name        = "PatraallowitforPatra"
+  name        = "Patraallowit"
   description = "Allow TLS inbound traffic"
   vpc_id      = "vpc-0190ac3687879a9ef"
 
