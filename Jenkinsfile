@@ -21,7 +21,12 @@ pipeline {
     }
     stages {
             stage('TerraformInit'){
-               sh "terraform init -input=false"
+               sh """
+               #!/bin/bash
+               terraform init -input=false
+               echo \$PWD
+               whoami
+               """
                 }
             }
 
