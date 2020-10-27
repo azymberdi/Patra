@@ -1,8 +1,10 @@
 # Patra
 
 ## Table of Contents. 
-main.tf - includes the necessary Terraform configuration to install Autoscaling group with 2 instances that will run with Grafana, Prometheus and Node Explorer.  
-Jenkinsfile - includes necessary Jenkins configuration to automate it. 
+**main.tf** - includes the necessary Terraform configuration to install Autoscaling group with 2 instances that will run with Grafana, Prometheus and Node Explorer.  
+**Jenkinsfile** - includes necessary Jenkins configuration to automate it. 
+  
+**userdata.sh** - includes the shell commands to install Grafana, Prometheus and Node Explorer inside the newly created Machine.
   
 Prerequisites
 These programs need to be installed in your Machine.
